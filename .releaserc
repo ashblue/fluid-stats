@@ -1,0 +1,38 @@
+{
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    [
+      "@semantic-release/npm",
+      {
+        "npmPublish": false
+      }
+    ],
+    [
+      "@semantic-release/exec",
+      {
+        "publishCmd": "npm run build"
+      }
+    ],
+    [
+      "@semantic-release/npm",
+      {
+        "pkgRoot": "Assets/com.fluid.stats"
+      }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "assets": [
+          "CHANGELOG.md",
+          "package.json",
+          "package-lock.json",
+          "npm-shrinkwrap.json",
+          "Assets/**/*"
+        ]
+      }
+    ],
+    "@semantic-release/github"
+  ]
+}

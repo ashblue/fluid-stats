@@ -1,0 +1,12 @@
+{
+    "name": "com.fluid.stats.Editor",
+    "references": [
+        "com.fluid.stats"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}
