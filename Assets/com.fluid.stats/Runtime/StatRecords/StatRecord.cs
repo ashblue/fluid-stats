@@ -80,8 +80,7 @@ namespace Adnc.StatsSystem {
 				_valueCache.Clear();
 				_isDirty = false;
 			} else {
-				float cacheVal;
-				if (_valueCache.TryGetValue(indexRound, out cacheVal)) {
+                if (_valueCache.TryGetValue(indexRound, out var cacheVal)) {
 					LastRetrievedValue = cacheVal;
 					return cacheVal;
 				}

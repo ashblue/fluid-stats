@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
 namespace Adnc.StatsSystem.Editors {
@@ -14,15 +11,10 @@ namespace Adnc.StatsSystem.Editors {
 		private SerializedProperty _propForceDisplay;
 		private SerializedProperty _propAdjustments;
 
-		public SerializedProperty PropForceDisplay {
-			get { return _propForceDisplay; }
-		}
+		public SerializedProperty PropForceDisplay => _propForceDisplay;
+        public SerializedProperty PropForceOperator => _propForceOperator;
 
-		public SerializedProperty PropForceOperator {
-			get { return _propForceOperator; }
-		}
-
-		private void OnEnable () {
+        private void OnEnable () {
 			_modifiers = new SortableListModifierGroup(this, "_adjustments", "Modifiers");
 
 			_propId = serializedObject.FindProperty("_id");

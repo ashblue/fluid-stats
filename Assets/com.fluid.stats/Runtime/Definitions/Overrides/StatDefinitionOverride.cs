@@ -14,8 +14,6 @@ namespace Adnc.StatsSystem {
         [SerializeField]
         public StatValueSelector value;
 
-        public bool IsValid {
-            get { return definition != null && value != null; }
-        }
+        public bool IsValid => definition != null && value != null;
     }
 }

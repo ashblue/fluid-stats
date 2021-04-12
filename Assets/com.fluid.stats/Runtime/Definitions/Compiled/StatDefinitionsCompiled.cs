@@ -51,7 +51,7 @@ namespace Adnc.StatsSystem {
             if (id == null) return null;
             var definitions = id.GetDefinitions();
 
-            var defaults = GetefinitionDefaults();
+            var defaults = GetDefinitionDefaults();
             if (defaults == null) return definitions;
 
             foreach (var statDefinition in defaults) {
@@ -62,7 +62,7 @@ namespace Adnc.StatsSystem {
             return definitions;
         }
 
-        public static List<StatDefinition> GetefinitionDefaults () {
+        public static List<StatDefinition> GetDefinitionDefaults () {
             var id = StatsSettings.Current.DefaultStats;
             if (id == null) return null;
 

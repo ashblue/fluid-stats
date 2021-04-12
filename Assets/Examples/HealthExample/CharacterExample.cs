@@ -6,10 +6,12 @@ using UnityEngine.UI;
 namespace Adnc.StatsSystem {
 	[RequireComponent(typeof(StatsContainerExample))]
 	public class CharacterExample : MonoBehaviour {
-		[SerializeField] Slider healthBar;
-		StatsContainer stats;
+        private StatsContainer stats;
 
-		void Start () {
+        [SerializeField]
+        private Slider healthBar;
+
+        void Start () {
 			stats = GetComponent<StatsContainerExample>().copy;
 
 			var health = stats.GetStat("health");

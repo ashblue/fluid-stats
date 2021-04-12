@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Adnc.Utility.Editors;
+﻿using Adnc.Utility.Editors;
 using UnityEditor;
 using UnityEngine;
 

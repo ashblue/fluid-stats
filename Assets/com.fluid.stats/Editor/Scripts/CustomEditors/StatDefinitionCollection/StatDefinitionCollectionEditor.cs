@@ -1,20 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
 namespace Adnc.StatsSystem.Editors {
     [CustomEditor(typeof(StatDefinitionCollection))]
     public class StatDefinitionCollectionEditor : Editor {
-        SortableListDefinitions _definitions;
+        private SortableListDefinitions _definitions;
         private SerializedProperty _propDefinitions;
 
-        private StatDefinitionCollection Target {
-            get {
-                return (StatDefinitionCollection)target;
-            }
-        }
+        private StatDefinitionCollection Target => (StatDefinitionCollection)target;
 
         private void OnEnable () {
             _propDefinitions = serializedObject.FindProperty("definitions");

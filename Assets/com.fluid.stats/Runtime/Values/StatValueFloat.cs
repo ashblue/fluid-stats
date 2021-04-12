@@ -1,13 +1,9 @@
-﻿using UnityEngine;
-
-namespace Adnc.StatsSystem {
+﻿namespace Adnc.StatsSystem {
     [System.Serializable]
     public class StatValueFloat : StatValueBase {
         public float value;
-        
-        public override bool IsFloat {
-            get { return true; }
-        }
+
+        public override bool IsFloat => true;
 
         public override float GetFloat (float index) {
             return value;

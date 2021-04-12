@@ -32,7 +32,7 @@ namespace Adnc.StatsSystem {
                 return _current;
             }
 
-            set { _current = value; }
+            set => _current = value;
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace Adnc.StatsSystem {
                 return _orderOfOperations;
             }
 
-            set { _orderOfOperations = value; }
+            set => _orderOfOperations = value;
         }
     }
 }

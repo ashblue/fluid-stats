@@ -5,10 +5,8 @@ namespace Adnc.StatsSystem {
     [System.Serializable]
     public class StatValueFloatCurve : StatValueBase {
         public AnimationCurve value = new AnimationCurve();
-        
-        public override bool IsFloat {
-            get { return true; }
-        }
+
+        public override bool IsFloat => true;
 
         public override float GetFloat (float index) {
             return value.Evaluate(index);

@@ -1,7 +1,7 @@
 ﻿namespace Adnc.StatsSystem {
-    public abstract class StatValueBase {        
-        public virtual bool IsInt { get { return false; } }
-        public virtual bool IsFloat { get { return false; } }
+    public abstract class StatValueBase {
+        public virtual bool IsInt => false;
+        public virtual bool IsFloat => false;
 
         public virtual int GetInt (float index) {
             return 0;

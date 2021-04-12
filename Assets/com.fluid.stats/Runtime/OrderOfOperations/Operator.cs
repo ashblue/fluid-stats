@@ -11,13 +11,9 @@ namespace Adnc.StatsSystem {
         [SerializeField]
         private bool _modifierAutoRound;
 
-        public OperatorType Type {
-            get { return _type; }
-        }
+        public OperatorType Type => _type;
 
-        public bool ModifierAutoRound {
-            get { return _modifierAutoRound; }
-        }
+        public bool ModifierAutoRound => _modifierAutoRound;
 
         public Operator () {
             // Unity serialized initializer

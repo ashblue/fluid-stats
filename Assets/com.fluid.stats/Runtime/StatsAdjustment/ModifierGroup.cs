@@ -5,9 +5,7 @@
         public StatValueSelector value = new StatValueSelector();
         public OperatorType operatorType;
 
-        public bool IsValid {
-            get { return definition != null && value != null; }
-        }
+        public bool IsValid => definition != null && value != null;
 
         public float GetValue (float index) {
             if (!IsValid) return 0;

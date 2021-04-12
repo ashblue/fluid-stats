@@ -24,9 +24,7 @@ namespace Adnc.StatsSystem {
         [SerializeField]
         private List<ModifierGroup> _adjustments = new List<ModifierGroup>();
 
-        public List<ModifierGroup> Adjustments {
-            get { return _adjustments; }
-        }
+        public List<ModifierGroup> Adjustments => _adjustments;
 
         /// <summary>
         /// String ID or randomly generated GUID if no ID is present
@@ -54,7 +52,7 @@ namespace Adnc.StatsSystem {
                 target.SetModifier(adj.operatorType, adj.definition, Id, adj.GetValue(index));
             }
         }
-        
+
         /// <summary>
         /// Remove all modifiers from the StatsData target
         /// </summary>

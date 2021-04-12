@@ -6,7 +6,7 @@ using AdncStats.Scripts.StatsContainer;
 namespace Adnc.StatsSystem.Examples {
 	[RequireComponent(typeof(StatsContainerExample))]
 	public class PlayerEquipmentExample : MonoBehaviour {
-		StatsContainer stats;
+        private StatsContainer stats;
 		public EquipmentItemExample head;
 		public EquipmentItemExample armor;
 
@@ -20,13 +20,9 @@ namespace Adnc.StatsSystem.Examples {
 		}
 
 		static PlayerEquipmentExample _current;
-		public static PlayerEquipmentExample Current {
-			get {
-				return _current;
-			}
-		}
+		public static PlayerEquipmentExample Current => _current;
 
-		void Awake () {
+        void Awake () {
 			_current = this;
 			stats = GetComponent<StatsContainerExample>().copy;
 

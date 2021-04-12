@@ -4,8 +4,11 @@ using Adnc.StatsSystem.Editors;
 
 namespace Adnc.StatsSystem.Examples {
 	public class StatPrintList : MonoBehaviour {
-		[SerializeField] StatsContainerExample statTarget;
-		[SerializeField] StatPrintListItem prefabLine;
+		[SerializeField]
+        private StatsContainerExample statTarget;
+
+		[SerializeField]
+        private StatPrintListItem prefabLine;
 
 		void Start () {
 			foreach (var r in statTarget.copy.records.records) {

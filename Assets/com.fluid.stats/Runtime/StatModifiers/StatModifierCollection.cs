@@ -20,9 +20,7 @@ namespace Adnc.StatsSystem {
         /// <summary>
         /// List of all available values. WARNING editing this list directly will cause the StatModifierGroup to crash.
         /// </summary>
-        public List<StatModifier> ListValues {
-            get { return _listValues; }
-        }
+        public List<StatModifier> ListValues => _listValues;
 
         public StatModifierCollection (OperatorType type) {
             _type = type;
@@ -33,8 +31,7 @@ namespace Adnc.StatsSystem {
         /// </summary>
         /// <param name="id">Identifier.</param>
         public StatModifier Get (string id) {
-            StatModifier output;
-            if (string.IsNullOrEmpty(id) || !_dicValues.TryGetValue(id, out output)) {
+            if (string.IsNullOrEmpty(id) || !_dicValues.TryGetValue(id, out var output)) {
                 return null;
             }
 
@@ -47,8 +44,6 @@ namespace Adnc.StatsSystem {
         /// <param name="id">Identifier.</param>
         /// <param name="value">Value.</param>
         public void Set (string id, float value) {
-            StatModifier mod;
-
             if (string.IsNullOrEmpty(id)) {
                 return;
             }
@@ -57,7 +52,7 @@ namespace Adnc.StatsSystem {
                 value = Mathf.Round(value);
             }
 
-            if (_dicValues.TryGetValue(id, out mod)) {
+            if (_dicValues.TryGetValue(id, out var mod)) {
                 mod.value = value;
             } else {
                 // No value was found to modify, create a new one
@@ -101,10 +96,10 @@ namespace Adnc.StatsSystem {
                 foreach (var statModifier in _listValues) {
                     multiplier += statModifier.value;
                 }
-                
+
                 return Mathf.Max(0, original + original * multiplier);
             }
-            
+
             var newVal = original;
             foreach (var statModifier in _listValues) {
                 switch (_type) {
