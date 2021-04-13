@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace Adnc.StatsSystem.Examples {
-	[CreateAssetMenu(fileName = "EquipmentItemExample", menuName = "ADNC/Stats/Example/Equipment Item", order = 2)]
+	[CreateAssetMenu(fileName = "EquipmentItemExample", menuName = "Fluid/Stats/Example/Equipment Item")]
 	public class EquipmentItemExample : ScriptableObject {
 		public string displayName;
 		public PlayerEquipmentExample.Category equipmentType;
@@ -24,5 +24,5 @@ namespace Adnc.StatsSystem.Examples {
 				}
 			}
 		}
-	}	
+	}
 }

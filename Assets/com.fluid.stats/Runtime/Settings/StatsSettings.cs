@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace Adnc.StatsSystem {
-    [CreateAssetMenu(fileName = "StatsSettings", menuName = "ADNC/Stats/Settings", order = 1)]
+    [CreateAssetMenu(fileName = "StatsSettings", menuName = "Fluid/Stats/Settings/Default")]
     public class StatsSettings : ScriptableObject {
         private static StatsSettings _current;
         private const string RESOURCE_PATH = "StatsSettings";
@@ -29,7 +29,7 @@ namespace Adnc.StatsSystem {
 
                 Debug.LogWarning(
                     "No StatsSettings file discovered. Loading Defaults." +
-                    " \nPlease create one via \"Project Window\" -> Right Click -> Create -> Fluid -> Stats -> Settings." +
+                    " \nPlease create one via \"Project Window\" -> Right Click -> Create -> Fluid -> Stats -> Settings -> Default." +
                     " Place the file in a \"Resources\" folder so it can be properly loaded."
                 );
 

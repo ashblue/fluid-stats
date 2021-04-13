@@ -1,11 +1,10 @@
-using System;
 using System.Collections.Generic;
 using Adnc.StatsSystem;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace AdncStats.Scripts.StatsContainer {
-    [CreateAssetMenu(fileName = "StatsContainer", menuName = "ADNC/Stats/Container")]
+    [CreateAssetMenu(fileName = "StatsContainer", menuName = "Fluid/Stats/Container")]
     public class StatsContainer : ScriptableObject {
         private class StatRecordEvent : UnityEvent<StatRecord> {}
         private Dictionary<StatRecord, StatRecordEvent> _events = new Dictionary<StatRecord, StatRecordEvent>();
@@ -18,7 +17,7 @@ namespace AdncStats.Scripts.StatsContainer {
         public StatDefinitionOverrideCollection overrides = new StatDefinitionOverrideCollection();
 
         public bool IsSetup { get; private set; }
-        
+
         /// <summary>
         /// Run initialization on the stats system
         /// </summary>
@@ -168,10 +167,10 @@ namespace AdncStats.Scripts.StatsContainer {
         /// <returns></returns>
         public bool RemoveModifier (OperatorType operation, StatRecord record, string modifierId) {
             if (record == null) return false;
-            
+
             var result = record.GetModifier(operation).Remove(modifierId);
             TriggerEvent(record);
-            
+
             return result;
         }
 
@@ -193,7 +192,7 @@ namespace AdncStats.Scripts.StatsContainer {
             RemoveModifier(OperatorType.Subtract, record, modifierId);
             RemoveModifier(OperatorType.Multiply, record, modifierId);
             RemoveModifier(OperatorType.Divide, record, modifierId);
-            
+
             TriggerEvent(record);
         }
 
@@ -230,13 +229,13 @@ namespace AdncStats.Scripts.StatsContainer {
                 @event.Invoke(record);
             }
         }
-        
+
         public void OnStatChangeSubscribe (StatRecord record, UnityAction<StatRecord> callback) {
             if (!_events.TryGetValue(record, out var @event)) {
                 @event = new StatRecordEvent();
                 _events[record] = @event;
             }
-            
+
             @event.AddListener(callback);
         }
 

@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace Adnc.StatsSystem {
-    [CreateAssetMenu(fileName = "OrderOfOperations", menuName = "ADNC/Stats/Order Of Operations", order = 1)]
+    [CreateAssetMenu(fileName = "OrderOfOperations", menuName = "Fluid/Stats/Settings/Order Of Operations")]
     public class OrderOfOperations : ScriptableObject {
         [Tooltip("The order of operations")]
         [SerializeField]

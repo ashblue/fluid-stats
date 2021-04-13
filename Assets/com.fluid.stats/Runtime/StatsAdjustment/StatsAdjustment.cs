@@ -3,7 +3,7 @@ using AdncStats.Scripts.StatsContainer;
 using UnityEngine;
 
 namespace Adnc.StatsSystem {
-    [CreateAssetMenu(fileName = "StatsAdjustment", menuName = "ADNC/Stats/Stats Adjustment", order = 2)]
+    [CreateAssetMenu(fileName = "StatsAdjustment", menuName = "Fluid/Stats/Stats Adjustment")]
     public class StatsAdjustment : ScriptableObject {
         // Storage container for lazy loaded GUIDs
         private string _randomId;

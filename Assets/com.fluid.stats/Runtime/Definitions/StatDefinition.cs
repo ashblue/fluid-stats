@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace Adnc.StatsSystem {
-	[CreateAssetMenu(fileName = "Stat", menuName = "ADNC/Stats/Definition")]
+	[CreateAssetMenu(fileName = "StatDefinition", menuName = "Fluid/Stats/Definitions/Default")]
 	public class StatDefinition : StatDefinitionBase {
         private const int MIN_SORT_INDEX = 0;
         private const int MAX_SORT_INDEX = 1000;
