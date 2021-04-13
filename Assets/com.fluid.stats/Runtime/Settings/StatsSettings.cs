@@ -20,14 +20,20 @@ namespace Adnc.StatsSystem {
 
         public static StatsSettings Current {
             get {
-                if (_current == null) {
-                    _current = Resources.Load<StatsSettings>(RESOURCE_PATH);
-                    Debug.AssertFormat(
-                        _current != null,
-                        "Could not load {1}. Please verify a {1} object is at `Resources/{0}'. If not please create one.",
-                        RESOURCE_PATH,
-                        typeof(StatsSettings).FullName);
-                }
+                // Force clear to prevent memory issues
+                if (Application.isEditor && !Application.isPlaying) _current = null;
+                if (_current != null) return _current;
+
+                _current = Resources.Load<StatsSettings>(RESOURCE_PATH);
+                if (_current != null) return _current;
+
+                Debug.LogWarning(
+                    "No StatsSettings file discovered. Loading Defaults." +
+                    " \nPlease create one via \"Project Window\" -> Right Click -> Create -> Fluid -> Stats -> Settings." +
+                    " Place the file in a \"Resources\" folder so it can be properly loaded."
+                );
+
+                _current = CreateInstance<StatsSettings>();
 
                 return _current;
             }
@@ -70,6 +76,10 @@ namespace Adnc.StatsSystem {
             }
 
             set => _orderOfOperations = value;
+        }
+
+        private void OnDestroy () {
+            _current = null;
         }
     }
 }
