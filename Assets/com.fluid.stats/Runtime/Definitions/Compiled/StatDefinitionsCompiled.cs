@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Adnc.StatsSystem {
+namespace CleverCrow.Fluid.StatsSystem {
     /// <summary>
     /// A collection for caching stat defintion collections at runtime
     /// </summary>

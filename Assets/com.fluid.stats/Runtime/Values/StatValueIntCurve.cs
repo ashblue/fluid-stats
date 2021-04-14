@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-namespace Adnc.StatsSystem {
+namespace CleverCrow.Fluid.StatsSystem {
     [System.Serializable]
     public class StatValueIntCurve : StatValueBase {
         public AnimationCurve value = new AnimationCurve();

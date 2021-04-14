@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Adnc.StatsSystem.Editors {
+namespace CleverCrow.Fluid.StatsSystem.Editors {
 	[CustomEditor(typeof(StatsAdjustment))]
 	public class StatsAdjustmentEditor : Editor {
 		private SortableListModifierGroup _modifiers;

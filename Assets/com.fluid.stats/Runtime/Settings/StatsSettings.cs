@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Adnc.StatsSystem {
+namespace CleverCrow.Fluid.StatsSystem {
     [CreateAssetMenu(fileName = "StatsSettings", menuName = "Fluid/Stats/Settings/Default")]
     public class StatsSettings : ScriptableObject {
         private static StatsSettings _current;
@@ -20,22 +20,18 @@ namespace Adnc.StatsSystem {
 
         public static StatsSettings Current {
             get {
-                // Force clear to prevent memory issues
-                if (Application.isEditor && !Application.isPlaying) _current = null;
                 if (_current != null) return _current;
 
                 _current = Resources.Load<StatsSettings>(RESOURCE_PATH);
                 if (_current != null) return _current;
 
-                Debug.LogWarning(
-                    "No StatsSettings file discovered. Loading Defaults." +
+                Debug.LogError(
+                    "No StatsSettings file discovered. Loading defaults which is not optimized." +
                     " \nPlease create one via \"Project Window\" -> Right Click -> Create -> Fluid -> Stats -> Settings -> Default." +
                     " Place the file in a \"Resources\" folder so it can be properly loaded."
                 );
 
-                _current = CreateInstance<StatsSettings>();
-
-                return _current;
+                return CreateInstance<StatsSettings>();
             }
 
             set => _current = value;
@@ -76,10 +72,6 @@ namespace Adnc.StatsSystem {
             }
 
             set => _orderOfOperations = value;
-        }
-
-        private void OnDestroy () {
-            _current = null;
         }
     }
 }

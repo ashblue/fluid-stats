@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using AdncStats.Scripts.StatsContainer;
+using CleverCrow.Fluid.StatsSystem.StatsContainers;
 using UnityEngine;
 
-namespace Adnc.StatsSystem {
+namespace CleverCrow.Fluid.StatsSystem {
     [CreateAssetMenu(fileName = "StatsAdjustment", menuName = "Fluid/Stats/Stats Adjustment")]
     public class StatsAdjustment : ScriptableObject {
         // Storage container for lazy loaded GUIDs

@@ -3,7 +3,7 @@ using Adnc.Utility.Editors;
 using UnityEditor;
 using UnityEngine;
 
-namespace Adnc.StatsSystem.Editors {
+namespace CleverCrow.Fluid.StatsSystem.Editors {
     public class SortableListModifierGroup : SortableListBase {
         public const int PICKER_CONTROL_ID = 398473;
 

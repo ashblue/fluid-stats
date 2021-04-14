@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using UnityEngine;
 
-namespace Adnc.StatsSystem.Editors.Testing {
+namespace CleverCrow.Fluid.StatsSystem.Editors.Testing {
     public class TestStatRecord : TestSettingsBase {
         [Test]
         public void CreateRecordWithoutDefinitionSilentlyErrors () {

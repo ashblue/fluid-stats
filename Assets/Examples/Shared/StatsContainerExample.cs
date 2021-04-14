@@ -1,7 +1,7 @@
-﻿using AdncStats.Scripts.StatsContainer;
+﻿using CleverCrow.Fluid.StatsSystem.StatsContainers;
 using UnityEngine;
 
-namespace Adnc.StatsSystem.Editors {
+namespace CleverCrow.Fluid.StatsSystem.Editors {
     public class StatsContainerExample : MonoBehaviour {
         public StatsContainer original;
         public StatsContainer copy;

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Adnc.StatsSystem.Examples {
+namespace CleverCrow.Fluid.StatsSystem.Examples {
 	public class ApplyEquipmentOnClick : MonoBehaviour {
 		[SerializeField]
         private EquipmentItemExample _item;

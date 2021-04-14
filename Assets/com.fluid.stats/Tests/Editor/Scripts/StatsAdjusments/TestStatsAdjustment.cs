@@ -1,8 +1,8 @@
-﻿using AdncStats.Scripts.StatsContainer;
+﻿using CleverCrow.Fluid.StatsSystem.StatsContainers;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace Adnc.StatsSystem.Editors.Testing {
+namespace CleverCrow.Fluid.StatsSystem.Editors.Testing {
     public class TestStatsAdjustment : TestSettingsBase {
         private StatDefinitionCollection _statCol;
         private StatDefinition _health;

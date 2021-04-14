@@ -1,4 +1,4 @@
-﻿namespace Adnc.StatsSystem {
+﻿namespace CleverCrow.Fluid.StatsSystem {
     public abstract class StatValueBase {
         public virtual bool IsInt => false;
         public virtual bool IsFloat => false;

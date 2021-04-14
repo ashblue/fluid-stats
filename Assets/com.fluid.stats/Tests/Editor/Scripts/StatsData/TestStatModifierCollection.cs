@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using NUnit.Framework;
 
-namespace Adnc.StatsSystem.Editors.Testing {
+namespace CleverCrow.Fluid.StatsSystem.Editors.Testing {
     public class TestStatModifierCollection : TestSettingsBase {
         public class ModifyValueMethod : TestSettingsBase {
             public class Multiply : ModifyValueMethod {
@@ -11,29 +11,29 @@ namespace Adnc.StatsSystem.Editors.Testing {
                 public void BeforeEachMethod () {
                     _col = new StatModifierCollection(OperatorType.Multiply);
                 }
-                
+
                 [Test]
                 public void Negative_removes_a_percentage () {
                     _col.Set("a", -0.05f);
-                    
+
                     Assert.AreEqual(95, _col.ModifyValue(100));
                 }
-                
+
                 [Test]
                 public void Two_negatives_are_combined_before_removing () {
                     _col.Set("a", -0.05f);
                     _col.Set("b", -0.05f);
-                    
+
                     Assert.AreEqual(90, _col.ModifyValue(100));
                 }
-                
+
                 [Test]
                 public void Positive_adds_a_percentage () {
                     _col.Set("a", 0.05f);
-                    
+
                     Assert.AreEqual(105, _col.ModifyValue(100));
                 }
-                
+
                 [Test]
                 public void Two_positive_are_combined_before_adding () {
                     _col.Set("a", 0.05f);
@@ -45,10 +45,10 @@ namespace Adnc.StatsSystem.Editors.Testing {
                 [Test]
                 public void Negative_greater_than_1_does_not_go_below_zero () {
                     _col.Set("a", -2);
-                    
+
                     Assert.AreEqual(0, _col.ModifyValue(100));
                 }
-                
+
                 [Test]
                 public void Cancelling_pos_neg_does_nothing () {
                     _col.Set("a", -0.15f);
@@ -56,7 +56,7 @@ namespace Adnc.StatsSystem.Editors.Testing {
 
                     Assert.AreEqual(100, _col.ModifyValue(100));
                 }
-                
+
                 [Test]
                 public void Negative_and_positive_values_overlap () {
                     _col.Set("a", -0.15f);
@@ -66,7 +66,7 @@ namespace Adnc.StatsSystem.Editors.Testing {
                 }
             }
         }
-        
+
         [Test]
         public void GetNull () {
             var modCol = new StatModifierCollection(OperatorType.Add);

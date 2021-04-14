@@ -1,9 +1,8 @@
 using System.Collections.Generic;
-using Adnc.StatsSystem;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace AdncStats.Scripts.StatsContainer {
+namespace CleverCrow.Fluid.StatsSystem.StatsContainers {
     [CreateAssetMenu(fileName = "StatsContainer", menuName = "Fluid/Stats/Container")]
     public class StatsContainer : ScriptableObject {
         private class StatRecordEvent : UnityEvent<StatRecord> {}

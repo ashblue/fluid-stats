@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Adnc.StatsSystem {
+namespace CleverCrow.Fluid.StatsSystem {
     [System.Serializable]
     public class Operator {
         [Tooltip("Type of operations")]

@@ -1,4 +1,4 @@
-﻿namespace Adnc.StatsSystem {
+﻿namespace CleverCrow.Fluid.StatsSystem {
     public enum OperatorType {
         Add,
         Subtract,

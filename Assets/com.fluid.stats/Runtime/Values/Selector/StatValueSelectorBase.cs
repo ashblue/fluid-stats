@@ -1,8 +1,7 @@
 ﻿using System;
-using Adnc.StatsSystem;
 using UnityEngine;
 
-namespace Adnc.StatsSystem {
+namespace CleverCrow.Fluid.StatsSystem {
     public abstract class StatValueSelectorBase {
         public bool IsFloat {
             get { return GetValue().IsFloat; }
@@ -17,10 +16,10 @@ namespace Adnc.StatsSystem {
 
         [SerializeField]
         protected StatValueIntCurve _valueIntCurve = new StatValueIntCurve();
-        
+
         [SerializeField]
         protected StatValueFloat _valueFloat = new StatValueFloat();
-        
+
         [SerializeField]
         protected StatValueFloatCurve _valueFloatCurve = new StatValueFloatCurve();
 

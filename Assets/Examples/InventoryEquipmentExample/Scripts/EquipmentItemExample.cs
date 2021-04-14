@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Adnc.StatsSystem.Examples {
+namespace CleverCrow.Fluid.StatsSystem.Examples {
 	[CreateAssetMenu(fileName = "EquipmentItemExample", menuName = "Fluid/Stats/Example/Equipment Item")]
 	public class EquipmentItemExample : ScriptableObject {
 		public string displayName;

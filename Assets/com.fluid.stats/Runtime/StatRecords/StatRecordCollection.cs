@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Adnc.StatsSystem {
+namespace CleverCrow.Fluid.StatsSystem {
     public class StatRecordCollection {
         private Dictionary<string, StatRecord> _recordsById = new Dictionary<string, StatRecord>();
         private Dictionary<StatDefinition, StatRecord> _recordsByDefinition = new Dictionary<StatDefinition, StatRecord>();

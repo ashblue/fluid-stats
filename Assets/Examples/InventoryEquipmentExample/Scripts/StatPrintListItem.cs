@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Adnc.StatsSystem.Examples {
+namespace CleverCrow.Fluid.StatsSystem.Examples {
 	public class StatPrintListItem : MonoBehaviour {
 		[SerializeField] Text _name;
 		public string Name {

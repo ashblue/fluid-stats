@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEditor;
 
-namespace Adnc.StatsSystem.Editors.Drawers {
+namespace CleverCrow.Fluid.StatsSystem.Editors.Drawers {
 	public abstract class StatValueSelectorBaseDrawer : PropertyDrawer {
 		protected SerializedProperty GetPropertyValueType (int enumIndex, SerializedProperty parent) {
 			var enumType = (StatValueType)enumIndex;
@@ -30,17 +30,17 @@ namespace Adnc.StatsSystem.Editors.Drawers {
 		protected SerializedProperty GetPropertyInt (SerializedProperty property) {
 			return property.FindPropertyRelative("_valueInt").FindPropertyRelative("value");
 		}
-        
+
 		protected SerializedProperty GetPropertyIntCurve (SerializedProperty property) {
 			return property.FindPropertyRelative("_valueIntCurve").FindPropertyRelative("value");
 		}
-        
+
 		protected SerializedProperty GetPropertyFloat (SerializedProperty property) {
 			return property.FindPropertyRelative("_valueFloat").FindPropertyRelative("value");
 		}
-        
+
 		protected SerializedProperty GetPropertyFloatCurve (SerializedProperty property) {
 			return property.FindPropertyRelative("_valueFloatCurve").FindPropertyRelative("value");
 		}
-	}	
+	}
 }

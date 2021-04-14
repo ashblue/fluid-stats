@@ -1,10 +1,10 @@
-using AdncStats.Scripts.StatsContainer;
+using CleverCrow.Fluid.StatsSystem.StatsContainers;
 using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Events;
 
-namespace Adnc.StatsSystem.Editors.Testing {
+namespace CleverCrow.Fluid.StatsSystem.Editors.Testing {
     public class StatsContainerTest : TestSettingsBase {
         private StatDefinitionCollection _statCol;
         private StatDefinitionCollection _statColDefault;
@@ -62,10 +62,10 @@ namespace Adnc.StatsSystem.Editors.Testing {
                 var copy = _container.CreateRuntimeCopy();
                 copy.OnStatChangeSubscribe("health", (record) => result = record);
                 copy.SetModifier(OperatorType.Add, "health", "plus", 5f);
-                
+
                 Assert.AreEqual(5f, result.GetValue());
             }
-            
+
             [Test]
             public void It_should_support_multiple_event_subscriptions_for_the_same_stat () {
                 var result = 0;
@@ -73,7 +73,7 @@ namespace Adnc.StatsSystem.Editors.Testing {
                 copy.OnStatChangeSubscribe("health", (record) => result += 1);
                 copy.OnStatChangeSubscribe("health", (record) => result += 1);
                 copy.SetModifier(OperatorType.Add, "health", "plus", 5f);
-                
+
                 Assert.AreEqual(2, result);
             }
 
@@ -82,7 +82,7 @@ namespace Adnc.StatsSystem.Editors.Testing {
                 var result = 0;
                 var copy = _container.CreateRuntimeCopy();
                 copy.OnStatChangeSubscribe("health", (record) => result += 1);
-                
+
                 Assert.AreEqual(0, result);
             }
 
@@ -95,7 +95,7 @@ namespace Adnc.StatsSystem.Editors.Testing {
                 copy.SetModifier(OperatorType.Add, "health", "plus", 5f);
                 copy.OnStatChangeSubscribe("health", (record) => result = record);
                 copy.RemoveModifier(OperatorType.Add, "health", "plus");
-                
+
                 Assert.AreEqual(0f, result.GetValue());
             }
 
@@ -108,7 +108,7 @@ namespace Adnc.StatsSystem.Editors.Testing {
                 copy.SetModifier(OperatorType.Add, "health", "plus", 5f);
                 copy.OnStatChangeSubscribe("health", (record) => result = record);
                 copy.ClearAllModifiers("plus");
-                
+
                 Assert.AreEqual(0f, result.GetValue());
             }
 
@@ -120,10 +120,10 @@ namespace Adnc.StatsSystem.Editors.Testing {
                 var copy = _container.CreateRuntimeCopy();
                 copy.OnStatChangeSubscribe(_health, (record) => result = record);
                 copy.SetModifier(OperatorType.Add, "health", "plus", 5f);
-                
+
                 Assert.AreEqual(5f, result.GetValue());
             }
-            
+
             [Test]
             public void It_should_subscribe_with_a_record () {
                 _health.Value.GetValue().SetInt(0);
@@ -132,7 +132,7 @@ namespace Adnc.StatsSystem.Editors.Testing {
                 var copy = _container.CreateRuntimeCopy();
                 copy.OnStatChangeSubscribe(copy.GetRecord("health"), (record) => result = record);
                 copy.SetModifier(OperatorType.Add, "health", "plus", 5f);
-                
+
                 Assert.AreEqual(5f, result.GetValue());
             }
         }
@@ -149,10 +149,10 @@ namespace Adnc.StatsSystem.Editors.Testing {
                 copy.OnStatChangeSubscribe(record, action);
                 copy.OnStatChangeUnsubscribe(record, action);
                 copy.SetModifier(OperatorType.Add, "health", "plus", 5f);
-                
+
                 Assert.IsNull(result);
             }
-            
+
             [Test]
             public void It_should_remove_the_passed_subscription_via_definition () {
                 _health.Value.GetValue().SetInt(0);
@@ -164,10 +164,10 @@ namespace Adnc.StatsSystem.Editors.Testing {
                 copy.OnStatChangeSubscribe(record, action);
                 copy.OnStatChangeUnsubscribe(_health, action);
                 copy.SetModifier(OperatorType.Add, "health", "plus", 5f);
-                
+
                 Assert.IsNull(result);
             }
-            
+
             [Test]
             public void It_should_remove_the_passed_subscription_via_string () {
                 _health.Value.GetValue().SetInt(0);
@@ -179,7 +179,7 @@ namespace Adnc.StatsSystem.Editors.Testing {
                 copy.OnStatChangeSubscribe(record, action);
                 copy.OnStatChangeUnsubscribe("health", action);
                 copy.SetModifier(OperatorType.Add, "health", "plus", 5f);
-                
+
                 Assert.IsNull(result);
             }
         }
@@ -217,7 +217,7 @@ namespace Adnc.StatsSystem.Editors.Testing {
                 var containerAlt = ScriptableObject.CreateInstance<StatsContainer>();
                 containerAlt.collection = _statCol;
                 containerAlt.Setup();
-                
+
                 Assert.AreNotEqual(val, containerAlt.GetStatInt(_health));
             }
         }
@@ -226,21 +226,21 @@ namespace Adnc.StatsSystem.Editors.Testing {
             [Test]
             public void It_should_return_a_copy () {
                 var copy = _container.CreateRuntimeCopy();
-                
+
                 Assert.IsNotNull(copy);
             }
 
             [Test]
             public void It_should_run_setup_on_the_copy () {
                 var copy = _container.CreateRuntimeCopy();
-                
+
                 Assert.IsTrue(copy.IsSetup);
             }
 
             [Test]
             public void It_should_copy_over_records () {
                 var copy = _container.CreateRuntimeCopy();
-                
+
                 Assert.IsTrue(copy.HasRecord(_health));
             }
         }

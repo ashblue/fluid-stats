@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Adnc.StatsSystem {
+namespace CleverCrow.Fluid.StatsSystem {
 	public class StatRecord {
 		private bool _isDirty = true;
 		private Dictionary<float, float> _valueCache = new Dictionary<float, float>();

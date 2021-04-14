@@ -1,8 +1,8 @@
-﻿using AdncStats.Scripts.StatsContainer;
+﻿using CleverCrow.Fluid.StatsSystem.StatsContainers;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace Adnc.StatsSystem.Editors.Testing {
+namespace CleverCrow.Fluid.StatsSystem.Editors.Testing {
     public class TestStatsDataRoundedValues : TestSettingsBase {
         private const float MULT = 2.2f;
         private const float ADD = 7.7f;

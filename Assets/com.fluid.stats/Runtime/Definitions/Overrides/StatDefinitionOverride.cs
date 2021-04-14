@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Adnc.StatsSystem {
+namespace CleverCrow.Fluid.StatsSystem {
     /// <summary>
     /// Used to override a pre-existing stat definition
     /// </summary>

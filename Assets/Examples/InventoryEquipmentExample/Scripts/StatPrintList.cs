@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Adnc.StatsSystem.Editors;
+using CleverCrow.Fluid.StatsSystem.Editors;
 
-namespace Adnc.StatsSystem.Examples {
+namespace CleverCrow.Fluid.StatsSystem.Examples {
 	public class StatPrintList : MonoBehaviour {
 		[SerializeField]
         private StatsContainerExample statTarget;

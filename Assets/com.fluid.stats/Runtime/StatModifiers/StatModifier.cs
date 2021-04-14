@@ -1,4 +1,4 @@
-﻿namespace Adnc.StatsSystem {
+﻿namespace CleverCrow.Fluid.StatsSystem {
     public class StatModifier {
         public readonly string id;
         public float value;

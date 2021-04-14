@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Adnc.StatsSystem {
+namespace CleverCrow.Fluid.StatsSystem {
 	[CreateAssetMenu(fileName = "StatDefinition", menuName = "Fluid/Stats/Definitions/Default")]
 	public class StatDefinition : StatDefinitionBase {
         private const int MIN_SORT_INDEX = 0;

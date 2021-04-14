@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Adnc.StatsSystem.Editors {
+namespace CleverCrow.Fluid.StatsSystem.Editors {
     [CustomEditor(typeof(StatDefinitionCollection))]
     public class StatDefinitionCollectionEditor : Editor {
         private SortableListDefinitions _definitions;

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Adnc.StatsSystem {
+namespace CleverCrow.Fluid.StatsSystem {
     [System.Serializable]
     public class StatDefinitionOverrideCollection {
         private Dictionary<StatDefinition, StatDefinitionOverride> _overridesByDefinition;

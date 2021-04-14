@@ -1,4 +1,4 @@
-﻿namespace Adnc.StatsSystem {
+﻿namespace CleverCrow.Fluid.StatsSystem {
     [System.Serializable]
     public class StatValueFloat : StatValueBase {
         public float value;

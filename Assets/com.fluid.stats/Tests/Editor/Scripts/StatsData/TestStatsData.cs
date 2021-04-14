@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using AdncStats.Scripts.StatsContainer;
+using CleverCrow.Fluid.StatsSystem.StatsContainers;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace Adnc.StatsSystem.Editors.Testing {
+namespace CleverCrow.Fluid.StatsSystem.Editors.Testing {
     public class TestStatsData : TestSettingsBase {
         private StatDefinitionCollection _statCol;
         private StatDefinitionCollection _statColDefault;

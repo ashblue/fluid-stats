@@ -1,9 +1,9 @@
-﻿using Adnc.StatsSystem.Editors;
-using AdncStats.Scripts.StatsContainer;
+﻿using CleverCrow.Fluid.StatsSystem.Editors;
+using CleverCrow.Fluid.StatsSystem.StatsContainers;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Adnc.StatsSystem {
+namespace CleverCrow.Fluid.StatsSystem {
 	[RequireComponent(typeof(StatsContainerExample))]
 	public class CharacterExample : MonoBehaviour {
         private StatsContainer stats;

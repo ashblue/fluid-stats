@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Adnc.StatsSystem.Editors {
+namespace CleverCrow.Fluid.StatsSystem.Editors {
     public class SortableListOperators : SortableListBase {
         public SortableListOperators (Editor editor, string property, string title) : base(editor, property, title) {
             _list.drawElementCallback = (rect, index, active, focused) => {

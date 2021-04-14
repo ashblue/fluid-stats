@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Adnc.StatsSystem.Editors {
+namespace CleverCrow.Fluid.StatsSystem.Editors {
 	public class SortableListDefinitions : SortableListBase {
 		public const int PICKER_CONTROL_ID = 236534;
 

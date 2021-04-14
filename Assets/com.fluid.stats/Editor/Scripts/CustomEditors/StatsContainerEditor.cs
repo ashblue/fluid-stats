@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using AdncStats.Scripts.StatsContainer;
+using CleverCrow.Fluid.StatsSystem.StatsContainers;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Adnc.StatsSystem.Editors {
+namespace CleverCrow.Fluid.StatsSystem.Editors {
 	[CustomEditor(typeof(StatsContainer))]
 	public class StatsContainerEditor : Editor {
 		private bool _debug;

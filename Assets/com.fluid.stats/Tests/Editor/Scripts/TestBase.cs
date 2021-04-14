@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Reflection;
-using UnityEngine;
+﻿using System.Reflection;
 
-namespace Adnc.StatsSystem.Editors.Testing {
+namespace CleverCrow.Fluid.StatsSystem.Editors.Testing {
 	public abstract class TestBase {
 		protected void CallSetup<T> (T target) {
 			CallPrivateMethod(target, "Awake");

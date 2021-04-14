@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace Adnc.StatsSystem {
+namespace CleverCrow.Fluid.StatsSystem {
     [CreateAssetMenu(fileName = "StatDefinitionCollection", menuName = "Fluid/Stats/Definitions/Collection")]
     public class StatDefinitionCollection : StatDefinitionBase {
         [Tooltip("List of definitions and definition collections")]

@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace Adnc.StatsSystem.Editors.Testing {
+namespace CleverCrow.Fluid.StatsSystem.Editors.Testing {
 	public class TestDefinitionCollection : TestBase {
 		private StatDefinitionCollection _col1;
 		private StatDefinitionCollection _col2;
@@ -34,7 +33,7 @@ namespace Adnc.StatsSystem.Editors.Testing {
 			_stat2 = null;
 			_stat3 = null;
 		}
-		
+
 		[Test]
 		public void DefinitionCollectionReturnsBlankArrayIfEmpty () {
 			Assert.AreEqual(0, _col1.GetDefinitions().Count);
@@ -43,7 +42,7 @@ namespace Adnc.StatsSystem.Editors.Testing {
 		[Test]
 		public void DefinitionCollectionSkipsNullDefinitionValues () {
 			_col1.definitions.Add(null);
-			
+
 			Assert.AreEqual(0, _col1.GetDefinitions().Count);
 		}
 
@@ -56,7 +55,7 @@ namespace Adnc.StatsSystem.Editors.Testing {
 		public void DefinitionDoesNotReturnIfVisited () {
 			Assert.AreEqual(0, _stat1.GetDefinitions(new HashSet<StatDefinitionBase> { _stat1 }).Count);
 		}
-		
+
 		[Test]
 		public void DefinitionCollectionDoesNotReturnIfVisited () {
 			Assert.AreEqual(0, _col1.GetDefinitions(new HashSet<StatDefinitionBase> { _col1 }).Count);
@@ -69,7 +68,7 @@ namespace Adnc.StatsSystem.Editors.Testing {
 			_col1.definitions.Add(_stat3);
 
 			var results = _col1.GetDefinitions();
-			
+
 			Assert.AreEqual(3, results.Count);
 			Assert.Contains(_stat1, results);
 			Assert.Contains(_stat2, results);
@@ -88,30 +87,30 @@ namespace Adnc.StatsSystem.Editors.Testing {
 			Assert.Contains(_stat1, results);
 			Assert.Contains(_stat2, results);
 		}
-		
+
 		[Test]
 		public void DefinitionCollectionReturnsCollections () {
 			_col1.definitions.Add(_col2);
 			_col1.definitions.Add(_col3);
-			
+
 			_col2.definitions.Add(_stat1);
 			_col3.definitions.Add(_stat2);
-			
+
 			var results = _col1.GetDefinitions();
 
 			Assert.AreEqual(2, results.Count);
 			Assert.Contains(_stat1, results);
 			Assert.Contains(_stat2, results);
 		}
-		
+
 		[Test]
 		public void DefinitionCollectionReturnsNestedCollections () {
 			_col1.definitions.Add(_col2);
 			_col2.definitions.Add(_col3);
-			
+
 			_col2.definitions.Add(_stat1);
 			_col3.definitions.Add(_stat2);
-			
+
 			var results = _col1.GetDefinitions();
 
 			Assert.AreEqual(2, results.Count);
@@ -123,10 +122,10 @@ namespace Adnc.StatsSystem.Editors.Testing {
 		public void DefinitionCollectionReturnsMultipleIdenticalCollections () {
 			_col1.definitions.Add(_col2);
 			_col1.definitions.Add(_col2);
-			
+
 			_col2.definitions.Add(_stat1);
 			_col2.definitions.Add(_stat2);
-			
+
 			var results = _col1.GetDefinitions();
 
 			Assert.AreEqual(2, results.Count);
@@ -138,10 +137,10 @@ namespace Adnc.StatsSystem.Editors.Testing {
 		public void DefinitionCollectionReturnsCollectionsWithIdenticalSiblingStats () {
 			_col1.definitions.Add(_col2);
 			_col1.definitions.Add(_stat1);
-			
+
 			_col2.definitions.Add(_stat1);
 			_col2.definitions.Add(_stat2);
-			
+
 			var results = _col1.GetDefinitions();
 
 			Assert.AreEqual(2, results.Count);
@@ -152,7 +151,7 @@ namespace Adnc.StatsSystem.Editors.Testing {
 		[Test]
 		public void NestedReciprocalDefinitionCollectionsDoNotCrash () {
 			_col1.definitions.Add(_col2);
-			
+
 			_col2.definitions.Add(_stat2);
 			_col2.definitions.Add(_col1);
 			_col2.definitions.Add(_stat3);
@@ -163,5 +162,5 @@ namespace Adnc.StatsSystem.Editors.Testing {
 			Assert.Contains(_stat2, results);
 			Assert.Contains(_stat3, results);
 		}
-	}	
+	}
 }

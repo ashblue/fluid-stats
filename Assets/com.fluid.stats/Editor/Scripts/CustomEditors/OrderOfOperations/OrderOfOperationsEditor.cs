@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 
-namespace Adnc.StatsSystem.Editors {
+namespace CleverCrow.Fluid.StatsSystem.Editors {
 	[CustomEditor(typeof(OrderOfOperations))]
 	public class OrderOfOperationsEditor : Editor {
 		private SortableListOperators _operators;
