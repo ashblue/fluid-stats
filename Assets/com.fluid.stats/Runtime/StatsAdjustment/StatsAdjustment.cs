@@ -3,7 +3,7 @@ using CleverCrow.Fluid.StatsSystem.StatsContainers;
 using UnityEngine;
 
 namespace CleverCrow.Fluid.StatsSystem {
-    [CreateAssetMenu(fileName = "StatsAdjustment", menuName = "Fluid/Stats/Stats Adjustment")]
+    [CreateAssetMenu(fileName = "StatsAdjustment", menuName = "Fluid/Stats/Adjustment")]
     public class StatsAdjustment : ScriptableObject {
         // Storage container for lazy loaded GUIDs
         private string _randomId;

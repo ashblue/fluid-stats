@@ -995,6 +995,7 @@ MonoBehaviour:
   healthBar: {fileID: 1672523535}
   originalStats: {fileID: 11400000, guid: 5992a01e425cd3c4b901d81eaf3f5e01, type: 2}
   runtimeStats: {fileID: 0}
+  armor: {fileID: 11400000, guid: 53c14cb976fc75c4f86213f8e7cc13f8, type: 2}
 --- !u!1 &2122477543
 GameObject:
   m_ObjectHideFlags: 0

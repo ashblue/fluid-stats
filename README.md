@@ -1,8 +1,8 @@
-# Fluid Stats
+# Fluid Stats System
 
 A Unity stats systems for JRPGs, action games, turn based, and any other genre you can think of. Create any kind of stats with visual editors and implement them however you want in your project. You can even bind stats changes to inventory items and effects with a "modifier" visual object. This Unity stats system is a package that can be easily included in any project with a few lines of code.
 
-![Unit Stats Example](documentation/stats-example.png)
+![Unity Stats Example](documentation/stats-example.png)
 
 **Features**
 
@@ -59,7 +59,26 @@ public class CharacterHealthStat : MonoBehaviour {
 }
 ```
 
-For a more in-depth explanation on all the features Fluid Stats has to offer see the following guides. They contain an in-depth walkthrough on how to create a stats system from scratch. 
+For a more in-depth explanation on Fluid Stats see the [guides](#getting-started-guides). They contain in-depth walkthroughs on creating a stats system from scratch.
+
+## Table of Contents
+
+* [Getting Started Guides](#getting-started-guides)
+    + [Your First Health Bar](#your-first-health-bar)
+    + [Your First Equipment Item](#your-first-equipment-item)
+    + [Examples](#examples)
+* [Recipes](#recipes)
+    - [Using Stat Curves](#using-stat-curves)
+    - [Printing Stats](#printing-stats)
+    - [Event Subscriptions](#event-subscriptions)
+    - [Adjusting Modifiers](#adjusting-modifiers)
+    - [Order of Operations](#order-of-operations)
+    + [Installation](#installation)
+* [Releases](#releases)
+* [Nightly Builds](#nightly-builds)
+* [Development Environment](#development-environment)
+    + [Making Commits](#making-commits)
+    + [How To Contribute](#how-to-contribute)
 
 ## Getting Started Guides
 
@@ -109,7 +128,7 @@ With the collection you're going to need a way to compile it into usable runtime
 
 Make your character stats container with the following instructions. Then attach the previously created collection.
 
-1. Right click on the project window and going to "Create -> Fluid -> Stats -> Container"
+1. Right click on the project window and select "Create -> Fluid -> Stats -> Container"
 1. Rename the created object "SampleCharacterStats"
 1. Attach the "DefaultStats" to the collection
 
@@ -121,16 +140,18 @@ With the container taken care of let's head back to the settings file. It can ma
 
 Remember that settings file we created at the beginning and placed in `Resources/StatsSettings`? It let's us override the order of operations and default stats shared among all containers. That in mind, we can move our default stats to the settings so all created characters automatically get a health stat. Personally I often use this to have special customized data for different NPCs and player characters.
 
-Set the default stats to our "DefaultsStats" object and remove the old reference.
+Set the default stats to your "DefaultsStats" object and remove the old reference.
 
 1. In `Resources/StatsSettings` set the "Default Stats" to "DefaultStats"
 1. Go back to "SampleCharacterStats" and remove the collection reference (stats will still persist)
 
 ![Stats Settings](documentation/stats-settings.png)
 
+With all your stats objects setup we can now move onto creating the health bar display.
+
 #### The Health Bar
 
-Now for the last part to rig up the health bar so we can see the health print to the screen. To do this we're going to create a canvas with a slider and write a script that outputs the health to the screen. First off create the canvas and slider UI elements.
+To create a health bar you'll need a canvas with a slider and a script that updates the screen when health changes. First off create the canvas and slider UI elements.
 
 1. Create a new scene called "MyFirstHealthBar" and open it
 1. Right click on the hierarchy window, then select "UI -> Canvas"
@@ -175,40 +196,168 @@ public class CharacterHealthStat : MonoBehaviour {
         healthBar.value -= 1;
     }
 }
-
 ```
 
-Lastly rig up the health bar to the new script. This is the last step.
+Lastly rig up the health bar to the new script. We're going to use the slider as a container for our health stats. Normally you'd want to store the health information in something like this [stats gauge microframework](https://github.com/ashblue/unity-gauges) that handles min and max values.
 
 1. Select the canvas object in the hierarchy
 1. Attach the `CharacterHealthStat` script
     1. Set the `buttonDealDamage` to the button you previously created
     1. Set the `healthBar` to the slider you previously created
-    1. Set the `originalStats` with "SampleCharacterStats" object. Do no add a `runtimeStats`, that will be automatically created for you at runtime
+    1. Set the `originalStats` with "SampleCharacterStats" object. Do not add a `runtimeStats`, this field is automatically populated at runtime
 
-And that's it. Run the game and click the button to reduce the bar's fill by 1. If you're having trouble you can always clone this repo and open the `MyFirstHealthBar.scene` to double check things.
+And that's it. Run the game and click the button to reduce the bar's fill by 1. If you're having trouble you can always clone this repo and open the example scene `MyFirstHealthBar.scene` to double check things.
 
 ### Your First Equipment Item
 
-Create the modifier object
+Since you've created a health bar let's create an equipment item that adjusts the total health with a gear piece. The "StatsAdjustment" object allows you to declare stats for modification with an operator (plus, minus, multiply, divide). These bundles can be bulk applied and removed by calling a simple method.
 
-Script to apply the modifier with a boolean
+#### Creating The Item
 
-Instruct to inspect the debugger
+For the first item you'll need to create a StatsAdjustment object. Then assign it an ID and value to modify the health stat.
+
+1. Right click on the project window and select "Create -> Fluid -> Stats -> Adjustment"
+   1. Rename the created object "StatsAdjustmentChainmail"
+1. Adjust the new object as so
+    1. Set the 'id' to "chainmail"
+    1. Click the plus on the modifiers and select StatHealth
+    1. Set the modifier's `value` to 10
+
+![Stats Adjustment Example](documentation/stats-adjustment-example.png)
+
+Now that you have a StatsAdjustment object it has to be applied to a runtime container. We'll do that next.
+
+#### Equipping The Item
+
+To equip the chainmail stats modifier, you'll need to modify the `CharacterHealthStat.cs` script slightly. Add a field for the StatsAdjustment called `armor` and call `armor.ApplyAdjustment(runtimeStats)`. Place this logic in the `Start` method.
+
+```c#
+using CleverCrow.Fluid.StatsSystem;
+
+// ...
+
+public class CharacterHealthStat : MonoBehaviour {
+    // ...
+
+    public StatsAdjustment armor;
+
+    private void Start () {
+        runtimeStats = originalStats.CreateRuntimeCopy();
+        
+        // Equip the item before any calculations are run
+        armor.ApplyAdjustment(runtimeStats);
+
+        var health = runtimeStats.GetStatInt("health");
+        healthBar.maxValue = health;
+        healthBar.value = health;
+
+        buttonDealDamage.onClick.AddListener(ReceiveDamage);
+    }
+
+    // ...
+}
+```
+
+Add the chainmail to the `armor` field on the `Canvas` object. Then click the game to run it and everything should appear as normal.
+
+![Modified Character Health Stat](documentation/modified-character-health-stat.png)
+
+Next we'll cover the stats debugger so you can see how the stats are being calculated and displayed.
+
+#### Stats Debugger
+
+To see the equipped stats double click the `runtimeStats` field on the Canvas object's `CharacterHealthStat` script. This will give you a drill down of all modifiers and how they affect each stat. Note that if you did not include an ID on the modifier this would be a randomized unique ID for the name instead of `chainmail`.
+
+![Stats Debugger](documentation/stats-debugger.png)
+
+It's important to note that all stats displayed are cached based on the last retrieved value. Complex calculations are run under the hood every time modifiers are applied or adjusted.
+
+That's it, you've covered all the basics. For more in-depth details on how to use this system see the [examples](#examples) or [recipes](#recipes) section.
 
 ### Examples
 
-Direct to the two samples by cloning this repo
+The following example projects are available that demonstrate advanced usage with stats and adjustments.
 
-### StatsContainer API Commands
+* [Combat Example](Assets/Examples/CombatExample)
+* [Inventory Equipment Example](Assets/Examples/InventoryEquipmentExample)
 
-ASDF
+## Recipes
 
-### Order of Operations
+#### Using Stat Curves
 
-If you wish to override the order of operations you can create your own.
+Int and float curves can be used instead of hard numbers. This is useful if you want to base things on a character or equipment item's level.
 
-HOW TO CREATE (include image)
+```c#
+var playerLevel = 10;
+var runtimeStats = originalStats.CreateRuntimeCopy();
+var health = runtimeStats.GetStatInt("health", 10);
+```
+
+#### Printing Stats
+
+In some cases you may need to print out all the available stats of a `StatsContainer`. In order to loop over them for printing you can do the following.
+
+```c#
+var runtimeStats = originalStats.CreateRuntimeCopy();
+runtimeStats.records.records.ForEach(record => Debug.Log(record));
+```
+
+If you want to print out a `StatsAdjustment` instead do the following.
+
+```c#
+statsAdjustment.records.records.ForEach(record => Debug.Log(record));
+```
+
+#### Event Subscriptions
+
+You can subscribe and unsubscribe to value change events on specific stats. This is very useful so you don't have to poll your stats for changes every frame.
+
+```c#
+var runtimeStats = originalStats.CreateRuntimeCopy();
+var callback = new UnityAction<StatRecord>((record) => { Debug.Log(record); });
+
+// To subscribe
+runtimeStats.OnStatChangeSubscribe("health", callback);
+
+// To unsubscribe if need be to prevent a memory leak
+runtimeStats.OnStatChangeUnsubscribe("health", callback);
+```
+
+#### Adjusting Modifiers
+
+Modifiers for stats can be applied with a StatsAdjustment ScriptableObject. It's important to note that they can also just be as easily wiped with a simple command.
+
+```c#
+var runtimeStats = originalStats.CreateRuntimeCopy();
+
+// Applying a StatsAdjustment
+statsAdjustment.ApplyAdjustment(runtimeStats);
+
+// When done the adjustment can be removed in bulk as so
+statsAdjustment.RemoveAdjustment(runtimeStats);
+```
+
+Adjustment stat modifiers can also be applied and remove individually as so.
+
+```c#
+var runtimeStats = originalStats.CreateRuntimeCopy();
+
+runtimeStats.SetModifier(OperatorType.Add, "health", "modifier ID", 10);
+runtimeStats.GetModifier(OperatorType.Add, "health", "modifier ID");
+runtimeStats.RemoveModifier(OperatorType.Add, "health", "modifier ID");
+```
+
+Lastly you can wipe all modifiers on a stat with the following command.
+
+```c#
+runtimeStats.ClearAllModifiers("health");
+```
+
+#### Order of Operations
+
+If you wish to override the order of operations you can create your own. Right click on the project window and go to "Create -> Fluid -> Stats -> Settings -> Order Of Operations". Note that the OrderOfOperations object must be placed in the StatsSettings in Resources to work.
+
+![order of operations](documentation/order-of-operations.png)
 
 ### Installation
 
