@@ -1,6 +1,6 @@
 {
   "name": "com.fluid.stats",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "unity": "2019.1",
   "displayName": "Fluid Stats",
   "description": "Character stat management tool for visual stat editing with modifier support.",
