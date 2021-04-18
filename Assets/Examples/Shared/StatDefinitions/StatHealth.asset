@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e16c6d96830b4d61833903225118adb, type: 3}
+  m_Name: StatHealth
+  m_EditorClassIdentifier: 
+  _id: health
+  _value:
+    _valueInt:
+      value: 10
+    _valueIntCurve:
+      value:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    _valueFloat:
+      value: 0
+    _valueFloatCurve:
+      value:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    type: 0
+  _forceRound: 0
+  _displayName: Health
+  _hidden: 0
+  _percentile: 0
+  _sortIndex: 1000
+  _description: When it runs out you die.

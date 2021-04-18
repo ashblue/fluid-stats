@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6932adf0ed04c3493f4d397feafd17a, type: 3}
+  m_Name: SkullCapAdjustment
+  m_EditorClassIdentifier: 
+  _id: SkullCap
+  _forceOperator: 1
+  _forceDisplay: 0
+  _adjustments:
+  - definition: {fileID: 11400000, guid: 27355736af3274d11a63b95b6a5a14cf, type: 2}
+    value:
+      _valueInt:
+        value: 2
+      _valueIntCurve:
+        value:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+      _valueFloat:
+        value: 0
+      _valueFloatCurve:
+        value:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+      type: 0
+    operatorType: 0
+  - definition: {fileID: 11400000, guid: 936f379c4beb54de0a5ce14696811553, type: 2}
+    value:
+      _valueInt:
+        value: 1
+      _valueIntCurve:
+        value:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+      _valueFloat:
+        value: 0
+      _valueFloatCurve:
+        value:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 0
+          m_PostInfinity: 0
+          m_RotationOrder: 0
+      type: 0
+    operatorType: 0

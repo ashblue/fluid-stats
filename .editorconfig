@@ -12,5 +12,5 @@ trim_trailing_whitespace = true
 max_line_length = off
 trim_trailing_whitespace = false
 
-[manifest.json]
+[*.json]
 indent_size = 2

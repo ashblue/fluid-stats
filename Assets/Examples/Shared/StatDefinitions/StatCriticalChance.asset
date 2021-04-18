@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e16c6d96830b4d61833903225118adb, type: 3}
+  m_Name: StatCriticalChance
+  m_EditorClassIdentifier: 
+  _id: criticalChance
+  _value:
+    _valueInt:
+      value: 1
+    _valueIntCurve:
+      value:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    _valueFloat:
+      value: 0.01
+    _valueFloatCurve:
+      value:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    type: 2
+  _roundModifiers: 0
+  _roundResult: 0
+  _displayName: Critical Chance
+  _hidden: 0
+  _percentile: 1
+  _sortIndex: 63
+  _description: How likely you are to deal bonus damage per hit.
