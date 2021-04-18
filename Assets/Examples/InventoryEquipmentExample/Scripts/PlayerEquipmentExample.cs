@@ -26,8 +26,6 @@ namespace CleverCrow.Fluid.StatsSystem.Examples {
 			_current = this;
 			stats = GetComponent<StatsContainerExample>().copy;
 
-			Debug.LogFormat("Health before equipping {0}", stats.GetStatInt("health"));
-
 			if (equipHeadOnLoad != null) {
 				Equip(equipHeadOnLoad);
 			}
@@ -35,8 +33,6 @@ namespace CleverCrow.Fluid.StatsSystem.Examples {
 			if (equipArmorOnLoad != null) {
 				Equip(equipArmorOnLoad);
 			}
-
-			Debug.LogFormat("Health after equipping {0}", stats.GetStatInt("health"));
 		}
 
 		public void Equip (EquipmentItemExample item) {
