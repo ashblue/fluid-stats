@@ -1,0 +1,19 @@
+{
+    "name": "com.fluid.stats.Editor.Tests",
+    "references": [
+        "com.fluid.stats",
+        "com.fluid.stats.Editor"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}
