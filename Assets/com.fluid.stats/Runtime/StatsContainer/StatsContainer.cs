@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace CleverCrow.Fluid.StatsSystem.StatsContainers {
     [CreateAssetMenu(fileName = "StatsContainer", menuName = "Fluid/Stats/Container")]
-    public class StatsContainer : ScriptableObject {
+    public class StatsContainer : ScriptableObject, IStatsContainer {
         private class StatRecordEvent : UnityEvent<StatRecord> {}
         private Dictionary<StatRecord, StatRecordEvent> _events = new Dictionary<StatRecord, StatRecordEvent>();
 
@@ -154,7 +154,6 @@ namespace CleverCrow.Fluid.StatsSystem.StatsContainers {
 
         public float GetModifier (OperatorType operation, string definitionId, string modifierId) {
             return GetModifier(operation, GetRecord(definitionId), modifierId);
-
         }
 
         /// <summary>
@@ -204,7 +203,7 @@ namespace CleverCrow.Fluid.StatsSystem.StatsContainers {
         }
 
         /// <summary>
-        /// Alias for ClarAllModifiers, except it wipes an array of strings
+        /// Alias for ClearAllModifiers, except it wipes an array of strings
         /// </summary>
         /// <param name="modifierIds">Modifier identifiers.</param>
         public void ClearAllModifiers (List<string> modifierIds) {
