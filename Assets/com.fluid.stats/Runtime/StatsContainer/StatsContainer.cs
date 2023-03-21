@@ -5,6 +5,7 @@ using UnityEngine.Events;
 namespace CleverCrow.Fluid.StatsSystem.StatsContainers {
     [CreateAssetMenu(fileName = "StatsContainer", menuName = "Fluid/Stats/Container")]
     public class StatsContainer : ScriptableObject, IStatsContainer {
+        public virtual string Id => name.Replace("(Copy)", "");
         private class StatRecordEvent : UnityEvent<StatRecord> {}
         private Dictionary<StatRecord, StatRecordEvent> _events = new Dictionary<StatRecord, StatRecordEvent>();
 
@@ -12,7 +13,7 @@ namespace CleverCrow.Fluid.StatsSystem.StatsContainers {
         public StatDefinitionCollection collection;
 
         public StatRecordCollection records = new StatRecordCollection();
-
+        public StatRecordCollection Records => records;
         public StatDefinitionOverrideCollection overrides = new StatDefinitionOverrideCollection();
 
         public bool IsSetup { get; private set; }

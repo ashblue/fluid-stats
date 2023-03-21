@@ -3,6 +3,16 @@ using UnityEngine.Events;
 
 namespace CleverCrow.Fluid.StatsSystem.StatsContainers {
     public interface IStatsContainer {
+        /// <summary>
+        /// ID of the container
+        /// </summary>
+        string Id { get; }
+
+        /// <summary>
+        /// All available records. Modify directly with extreme caution
+        /// </summary>
+        StatRecordCollection Records { get; }
+
         StatsContainer CreateRuntimeCopy ();
 
         StatRecord GetRecord (string definitionId);
