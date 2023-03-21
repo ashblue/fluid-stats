@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace CleverCrow.Fluid.StatsSystem.Editors {
-	[CustomEditor(typeof(StatsContainer))]
+	[CustomEditor(typeof(StatsContainer), true)]
 	public class StatsContainerEditor : Editor {
 		private bool _debug;
 
