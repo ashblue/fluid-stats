@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/ashblue/fluid-stats/compare/v1.1.0...v1.1.1) (2023-03-21)
+
+
+### Bug Fixes
+
+* **stat-container:** added missing interfaces and fixed a stat container GUI display bug ([bbcb854](https://github.com/ashblue/fluid-stats/commit/bbcb8542bf0011eff3b19c44037affd77c486680))
+
 # [1.1.0](https://github.com/ashblue/fluid-stats/compare/v1.0.0...v1.1.0) (2021-04-20)
 
 

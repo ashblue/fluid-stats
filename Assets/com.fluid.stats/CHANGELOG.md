@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/ashblue/fluid-stats/compare/v1.0.0...v1.1.0) (2021-04-20)
+
+
+### Features
+
+* **stats-container:** now include interfaces ([216f79a](https://github.com/ashblue/fluid-stats/commit/216f79a203ccf9678ed3aa4f10ccf6c700087bbc))
+
 # 1.0.0 (2021-04-18)
 
 
