@@ -1,0 +1,24 @@
+{
+  "description": "Character stat management tool for visual stat editing with modifier support.",
+  "displayName": "Fluid Stats",
+  "keywords": [
+    "unity3D",
+    "character stats",
+    "stats",
+    "stat system",
+    "ScriptableObject"
+  ],
+  "oysterVersion": "3.0.0",
+  "packageName": "com.fluid.stats",
+  "packageScope": "com.fluid",
+  "unityVersion": "2019.1",
+  "author": {
+    "name": "Ash Blue",
+    "email": "ash@blueashes.com",
+    "url": "https://twitter.com/ashbluewd"
+  },
+  "repo": {
+    "gitUrl": "https://github.com/ashblue/fluid-stats",
+    "gitUrlNoHttp": "github.com/ashblue/fluid-stats"
+  }
+}
