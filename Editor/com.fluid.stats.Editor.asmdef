@@ -1,0 +1,20 @@
+{
+    "name": "com.fluid.stats.Editor",
+    "rootNamespace": "",
+    "references": [
+        "com.fluid.stats",
+        "com.fluid.adnc-utilities",
+        "com.fluid.adnc-utilities.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
