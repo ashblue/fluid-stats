@@ -77,7 +77,7 @@ Fluid Stats is used through [Unity's Package Manager](https://docs.unity3d.com/M
     }
   ],
   "dependencies": {
-    "com.fluid.stats": "1.0.0"
+    "com.fluid.stats": "1.1.1"
   }
 }
 ```
